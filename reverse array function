@@ -1,0 +1,13 @@
+#function used to reverse an array
+
+def reverse(array):
+  rev_array = []
+  for i in range(-1,-(len(array)+1),-1):
+    temp=[]
+    for j in range(-1,-(len(array)+1),-1):
+      temp.append(array[i][j])
+    rev_array.append(temp)
+  return rev_array
+  
+array = [[1,2,3],[4,5,6],[7,8,9]]
+print(reverse(array))
