@@ -1,0 +1,49 @@
+/*
+Codeacademy JS course
+*/
+
+team = {
+  _players: [
+    {
+      firstName: 'Pablo',
+      lastName: 'Sanchez',
+      age: 11
+    }
+  ],
+  get players(){
+    return this._players
+  },
+  _games: [
+    {
+      opponent: 'Broncos',
+      teamPoints: 42,
+      opponentPoints: 27
+    }
+  ],
+  get games(){
+    return this._games
+  },
+  addPlayer(firstName,lastName,age){
+      this._players.push({
+      firstName: firstName,
+      lastName:lastName,
+      age: age
+    }
+      )
+
+  },
+  addGame(opponent,teamPoints,opponentPoints){
+    this._games.push(
+      {
+        opponent: opponent,
+        teamPoints: teamPoints,
+        opponentPoints: opponentPoints
+      }
+    )
+  }
+  
+}
+
+team.addPlayer('afolabi','cardoso',34)
+team.addGame('Heats', 24,54)
+console.log(team.games)
