@@ -1,3 +1,4 @@
+#python
 #function used to reverse an array
 
 def reverse(array):
