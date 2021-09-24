@@ -1,0 +1,64 @@
+// ShiftCipher class
+class ShiftCipher {
+  constructor(shiftValue){
+    this.shiftValue = shiftValue;
+  }
+
+//encrypt() method defined
+  encrypt(shiftString){
+
+    //convert string to lowercase
+    let shiftStringLower = shiftString.toLowerCase();
+    let str = ''
+
+    //Using a for loop, iterate through the string
+    for(let i = 0; i<shiftStringLower.length;i++){
+
+      //get the unicode value for the character and add the shiftValue
+
+      let charCode = shiftStringLower.charCodeAt([i])+this.shiftValue;
+
+      //using if..else, determine if the character is after 'z' by checking if its greater than 122
+      if(charCode>96&&charCode< 123){
+        str += String.fromCharCode(charCode);
+      }
+      else{
+        charCode = (charCode-122)+96;
+        str += String.fromCharCode(charCode)
+      }
+    }
+    //end of for loop
+    return str.toUpperCase();
+  }
+
+  //decrypt method defined
+  decrypt(shiftString){
+    //convert string to lowercase
+    let shiftStringLower = shiftString.toLowerCase();
+    let str = ''
+
+    //Using a for loop, iterate through the string
+    for(let i = 0; i<shiftStringLower.length;i++){
+
+      //get the unicode value for the character and add the shiftValue
+
+      let charCode = shiftStringLower.charCodeAt([i])-this.shiftValue;
+      
+      //using if..else, determine if the character is after 'z' by checking if its greater than 122
+      if(charCode>96&&charCode< 123){
+        str += String.fromCharCode(charCode);
+      }
+      else{
+        charCode = 123 - (97 - charCode);
+        str += String.fromCharCode(charCode);
+      }
+    }
+    //end of for loop
+    return str;
+  }
+  
+}
+
+//test code by creating an instance of ShiftCiper
+const cipher = new ShiftCipher(1);
+console.log(cipher.encrypt('Z'))
